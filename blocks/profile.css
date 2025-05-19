@@ -31,26 +31,26 @@
 
 .profile__edit-btn {
   margin-top: auto;
+  background-color: #fcf5e5;
+  border-style: none;
 }
 
 .profile__add-btn {
   width: 180px;
   height: 59px;
   margin-left: auto;
-  margin-top: 157.39px;
-  margin-bottom: 22.78px;
+  margin-top: 138px;
+  margin-bottom: 20px;
   background-color: #000000;
   color: #ffffff;
   border-radius: 9px;
 }
 
-.profile__edit-btn img {
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-.profile__add-btn img {
-  margin-right: 8px;
+.profile__edit-btn,
+.profile__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media screen and (max-width: 627px) {
@@ -61,7 +61,6 @@
     text-align: center;
   }
   .profile__avatar {
-    margin-right: 20px;
     margin: 0 0 12px;
     height: 190px;
     width: 190px;
@@ -72,7 +71,7 @@
     max-width: 288px;
   }
   .profile__column {
-    margin: 0 0 20 px;
+    margin: 0 0 20px;
   }
   .profile__description {
     margin: 0 0 32px;
