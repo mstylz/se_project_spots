@@ -1,0 +1,15 @@
+{
+    "folders": [
+		{
+			"name": "se_project_spots",
+			"path": "."
+		},
+		{
+			"name": "vendor",
+			"path": "../../Desktop/mesut/bootcamp/Tripleten files/project-2-stage-4/se_project_coffeeshop/vendor"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "se_project_spots"
+    }
+}

@@ -1,21 +1,69 @@
 # Project 3: Spots
 
-### Overview  
+### Overview
 
 * Intro  
 * Figma  
 * Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+* Tech Stack  
+* Screenshots  
+* Deployment  
+
+---
+
+**✦ Intro**
+
+Spots is a responsive image-sharing webpage that allows users to create, like, and delete photo cards, and update profile information. The layout mimics real-world social platforms, offering an intuitive and accessible interface across all device types — mobile, tablet, and desktop. This project is built from scratch using semantic HTML, modular CSS, and responsive design techniques.
+
+---
+
+**✦ Figma**
+
+The visual design of this project was provided via Figma, including detailed mockups for mobile (320px), tablet (~768px), and desktop (1440px). The layout and typography closely follow the Figma blueprint to ensure precision and design consistency.
+
+* [View Figma Design](https://www.figma.com/file/BBNm2bC3Lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A606&mode=design&t=afgNFybdoRZ06cQo-1)
+
+---
+
+**✦ Images**
+
+All assets, including avatars and photo cards, were exported directly from Figma. Images were optimized using [TinyPNG](https://tinypng.com/) before integration to improve performance and reduce load times.
+
+> Fonts are loaded locally via `@font-face` in the `vendor/fonts.css` file. Only necessary font weights were included to stay within GitHub Pages file size limits.
+
+---
+
+**✦ Tech Stack**
+
+This project was built using the following technologies and methodologies:
+
+- **HTML5** – Semantic structure
+- **CSS3** – Layout, styling, transitions
+- **CSS Grid & Flexbox** – Responsive design layout systems
+- **Media Queries** – For adapting UI across screen sizes
+- **BEM Methodology** – Block Element Modifier naming convention for clean CSS
+- **Normalize.css** – Ensures consistent default styles across browsers
+- **Poppins Font** – Custom font imported via local hosting
+
+---
+
+**✦ Screenshots**
+
+> Add your screenshots to a `screenshots/` folder and reference them below once available:
+
+### Desktop View
+![Desktop](./screenshots/desktop-view.png)
+
+### Mobile View
+![Mobile](./screenshots/mobile-view.png)
+
+---
+
+**✦ Deployment**
+
+This project has been deployed using GitHub Pages and is publicly accessible via the link below:
+
+🔗 [View Live Project](https://github.com/mstylz/se_project_spots.git)
+
+---
+
