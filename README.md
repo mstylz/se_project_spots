@@ -8,6 +8,7 @@
 * Tech Stack  
 * Screenshots  
 * Deployment  
+* Video Link  
 
 ---
 
@@ -48,14 +49,13 @@ This project was built using the following technologies and methodologies:
 ---
 
 **✦ Screenshots**
-
-> Add your screenshots to a `screenshots/` folder and reference them below once available:
-
 ### Desktop View
-![Desktop](./screenshots/desktop-view.png)
+(./screenshots/desktop-view.png)
 
 ### Mobile View
-![Mobile](./screenshots/mobile-view.png)
+(./screenshots/mobile-view-1.png)
+(./screenshots/mobile-view-2.png)
+
 
 ---
 
@@ -65,5 +65,6 @@ This project has been deployed using GitHub Pages and is publicly accessible via
 
 🔗 [View Live Project](https://github.com/mstylz/se_project_spots.git)
 
----
+**✦ Video Link**
 
+https://vimeo.com/1086106960/ff29d8c893?share=copy
