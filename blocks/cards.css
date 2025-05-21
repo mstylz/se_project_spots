@@ -17,11 +17,10 @@
 
 @media screen and (max-width: 627px) {
   .cards {
-    padding: 28px 0;
+    padding-bottom: 20px;
   }
   .cards__list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, 288px);
     gap: 20px;
-    margin: 0 19px;
   }
 }

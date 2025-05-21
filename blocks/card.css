@@ -3,19 +3,22 @@
 }
 
 .card__title {
+  color: #212121;
   margin: 0;
   font-size: 24px;
-  line-height: 29px;
+  line-height: 1.2;
   font-weight: 900;
-  word-wrap: break-word;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__image {
   display: block;
   height: 413px;
-  width: 413px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card__content {
@@ -43,6 +46,8 @@
     height: 288px;
   }
   .card {
-    width: 288px;
+    max-width: 235px;
+    font-size: 16px;
+    line-height: 100%;
   }
 }

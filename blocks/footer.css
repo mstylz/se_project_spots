@@ -1,5 +1,5 @@
 .footer {
-  padding: 40px 20px;
+  padding: 60px 0;
   text-align: center;
   background-color: #fcf5e5;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -14,7 +14,6 @@
   line-height: 1.2;
   color: #333;
   font-family: Poppins, Arial, Helvetica, sans-serif;
-  letter-spacing: 0%;
 }
 
 @media screen and (max-width: 627px) {

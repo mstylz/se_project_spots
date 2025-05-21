@@ -5,6 +5,9 @@
 }
 
 .profile__avatar {
+  width: 216px;
+  height: 216px;
+  border-radius: 9px;
   margin-right: 20px;
 }
 
@@ -14,6 +17,8 @@
 }
 
 .profile__name {
+  color: #212121;
+  font-size: 36px;
   margin: 0 0 12px;
   font-weight: 500;
   text-overflow: ellipsis;
@@ -27,12 +32,32 @@
 
 .profile__description {
   margin: 0;
+  color: #212121b2;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 500;
+  max-width: 368px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .profile__edit-btn {
   margin-top: auto;
-  background-color: #fcf5e5;
+  background-color: transparent;
   border-style: none;
+  color: #212121;
+  font-size: 18px;
+  line-height: 100px;
+  font-weight: 500;
+  padding: 0;
+}
+
+.profile__edit-btn:hover {
+  opacity: 70%;
+  cursor: pointer;
 }
 
 .profile__add-btn {
@@ -41,9 +66,18 @@
   margin-left: auto;
   margin-top: 138px;
   margin-bottom: 20px;
-  background-color: #000000;
+  background-color: #212121;
   color: #ffffff;
-  border-radius: 9px;
+  border-radius: 9.11px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 500;
+  padding: 0;
+}
+
+.profile__add-btn:hover {
+  opacity: 70%;
+  cursor: pointer;
 }
 
 .profile__edit-btn,

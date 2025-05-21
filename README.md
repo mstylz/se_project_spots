@@ -63,7 +63,7 @@ This project was built using the following technologies and methodologies:
 
 This project has been deployed using GitHub Pages and is publicly accessible via the link below:
 
-🔗 [View Live Project](https://github.com/mstylz/se_project_spots.git)
+🔗 [View Live Project](https://mstylz.github.io/se_project_spots/index.html)
 
 **✦ Video Link**
 
