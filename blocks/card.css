@@ -3,6 +3,7 @@
 }
 
 .card__title {
+  max-width: 353px;
   color: #212121;
   margin: 0;
   font-size: 20px;
