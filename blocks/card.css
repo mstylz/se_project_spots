@@ -1,13 +1,13 @@
 .card {
-  width: 413px;
+  max-width: 413px;
 }
 
 .card__title {
   color: #212121;
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.2;
-  font-weight: 900;
+  font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -15,7 +15,7 @@
 
 .card__image {
   height: 413px;
-  width: 413px;
+  width: 100%;
   display: block;
   object-fit: cover;
   border-radius: 8px;
@@ -46,7 +46,7 @@
   .card__image {
     height: 288px;
   }
-  .card {
+  .card__title {
     max-width: 235px;
     font-size: 16px;
     line-height: 100%;
