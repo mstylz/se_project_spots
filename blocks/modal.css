@@ -106,7 +106,7 @@
 }
 
 .modal__close-btn {
-  background-image: URL(../images/close-icon.svg);
+  background-image: url(../images/close-icon.svg);
   position: absolute;
   top: 32px;
   right: 50px;
