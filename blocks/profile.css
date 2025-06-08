@@ -1,122 +1,122 @@
 .profile {
-  display: flex;
-  padding: 34px 0 20px;
-  border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
+    display: flex;
+    padding: 34px 0 20px;
+    border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
 }
 
 .profile__avatar {
-  width: 190px;
-  height: 190px;
-  border-radius: 8px;
-  margin-right: 20px;
+    width: 190px;
+    height: 190px;
+    border-radius: 8px;
+    margin-right: 20px;
 }
 
 .profile__column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile__name {
-  color: #212121;
-  font-size: 32px;
-  margin: 0 0 12px;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  line-height: 1;
-  max-width: 420px;
+    color: #212121;
+    font-size: 32px;
+    margin: 0 0 12px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1;
+    max-width: 420px;
 }
 
 .profile__description {
-  margin: 0;
-  color: #212121b2;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  max-width: 420px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+    margin: 0;
+    color: #212121b2;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    max-width: 420px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .profile__edit-btn {
-  margin-top: auto;
-  background-color: transparent;
-  border-style: none;
-  color: #212121;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  padding: 0;
-  opacity: 70%;
+    margin-top: auto;
+    background-color: transparent;
+    border-style: none;
+    color: #212121;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    padding: 0;
+    opacity: 70%;
 }
 
 .profile__edit-btn:hover {
-  opacity: 100%;
-  cursor: pointer;
+    opacity: 100%;
+    cursor: pointer;
 }
 
-.profile__add-btn {
-  border: none;
-  justify-content: center;
-  width: 180px;
-  height: 59px;
-  margin-left: auto;
-  margin-top: auto;
-  background-color: #212121;
-  color: #ffffff;
-  border-radius: 8px;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  padding: 0;
-  border: none;
-  justify-content: center;
+.profile__new-post-btn {
+    border: none;
+    justify-content: center;
+    width: 180px;
+    height: 59px;
+    margin-left: auto;
+    margin-top: auto;
+    background-color: #212121;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    padding: 0;
+    border: none;
+    justify-content: center;
 }
 
-.profile__add-btn:hover {
-  opacity: 80%;
-  cursor: pointer;
+.profile__new-post-btn:hover {
+    opacity: 80%;
+    cursor: pointer;
 }
 
 .profile__edit-btn,
-.profile__add-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.profile__new-post-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 @media screen and (max-width: 627px) {
-  .profile {
-    flex-direction: column;
-    max-width: 288px;
-    align-items: center;
-    text-align: center;
-  }
-  .profile__avatar {
-    margin: 0 0 12px;
-    height: 190px;
-    width: 190px;
-  }
-  .profile__name {
-    font-size: 20px;
-    margin: 0 0 12px;
-    max-width: 288px;
-  }
-  .profile__column {
-    margin: 0 0 20px;
-  }
-  .profile__description {
-    margin: 0 0 32px;
-    max-width: 288px;
-  }
-  .profile__add-btn {
-    margin: 0;
-    width: 100%;
-  }
+    .profile {
+        flex-direction: column;
+        max-width: 288px;
+        align-items: center;
+        text-align: center;
+    }
+    .profile__avatar {
+        margin: 0 0 12px;
+        height: 190px;
+        width: 190px;
+    }
+    .profile__name {
+        font-size: 20px;
+        margin: 0 0 12px;
+        max-width: 288px;
+    }
+    .profile__column {
+        margin: 0 0 20px;
+    }
+    .profile__description {
+        margin: 0 0 32px;
+        max-width: 288px;
+    }
+    .profile__new-post-btn {
+        margin: 0;
+        width: 100%;
+    }
 }
