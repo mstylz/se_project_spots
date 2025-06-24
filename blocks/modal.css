@@ -157,19 +157,20 @@
 }
 
 .modal__caption {
-  width: 214px;
-  height: 32px;
   color: #fff;
   background-color: #212121;
   padding: 4px 8px;
-  margin-top: 12px;
-  margin-bottom: 44px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 20px;
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0%;
   border-radius: 8px;
+  left: 0;
+  top: calc(100% + 10px);
+  position: absolute;
 }
 
 @media screen and (max-width: 480px) {
