@@ -104,7 +104,7 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
   closeModal(newPostModal);
-  newPostForm.reset();
+    newPostForm.reset();
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
