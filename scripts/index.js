@@ -1,5 +1,5 @@
-//I'm testing the automated test since it fails after I make the necessary changes(adding newPostForm.reset();).This is not the updated code.
 import { initialCards } from './cards.js';
+
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
