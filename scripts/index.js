@@ -1,4 +1,4 @@
-import { initialCards } from './scripts/cards.js';
+import { initialCards } from './cards.js';
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -104,7 +104,8 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
   closeModal(newPostModal);
-  newPostForm.reset();
+  newPostImageInput.value = '';
+  newPostCaptionInput.value = '';
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
