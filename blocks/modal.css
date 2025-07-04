@@ -143,8 +143,6 @@
   opacity: 0.6;
 }
 
-/* Ensure that when the button is disabled via the HTML attribute, these styles apply too */
-
 .modal__submit-btn:disabled {
   background-color: #e6e6e6;
   color: #b0b0b0;
