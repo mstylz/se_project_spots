@@ -25,7 +25,7 @@
 
 .modal__container {
   max-width: 730px;
-  max-height: 400px;
+  max-height: 473px;
   width: 100%;
   border-radius: 8px;
   background-color: #fff;
@@ -50,6 +50,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-height: 342px;
+  max-width: 630px;
 }
 
 .modal__label {
@@ -58,11 +60,11 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 0;
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 110%;
   letter-spacing: 0%;
+  margin-top: 20px;
 }
 
 .modal__input {
@@ -97,6 +99,21 @@
   font-size: 20px;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  display: block;
+  color: red;
+  margin-top: 8px;
+  font-size: 16px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: 0%;
+}
+
 .modal__submit-btn {
   background-color: #212121;
   color: #fff;
@@ -112,10 +129,27 @@
   width: 100%;
   line-height: 100%;
   letter-spacing: 0%;
+  margin-bottom: 32px;
 }
 
 .modal__submit-btn:hover {
-  opacity: 0.4;
+  background-color: #212121cc;
+}
+
+.modal__submit-btn-disabled {
+  background-color: #e6e6e6;
+  color: #b0b0b0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Ensure that when the button is disabled via the HTML attribute, these styles apply too */
+
+.modal__submit-btn:disabled {
+  background-color: #e6e6e6;
+  color: #b0b0b0;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .modal__close-btn {
