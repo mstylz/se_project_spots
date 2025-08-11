@@ -5,6 +5,9 @@ import {
   settings,
 } from "./validation.js";
 
+// Initialize form validation
+enableValidation(settings);
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
