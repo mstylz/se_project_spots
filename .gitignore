@@ -1,16 +1,3 @@
-# Dependency directories
 node_modules/
-
-# Build output
 dist/
-
-# Environment files
-.env
-.env.local
-
-# IDE specific files
-.vscode/
-.idea/
-
-# System files
 .DS_Store

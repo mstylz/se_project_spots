@@ -3,7 +3,18 @@ import {
   disableButton,
   resetValidation,
   settings,
-} from "./validation.js";
+} from "../scripts/validation.js";
+
+// Import CSS file
+import "../pages/index.css";
+
+// Import local images
+import avatarImage from "../images/avatar.jpg";
+import logoImage from "../images/logo.svg";
+import pencilIcon from "../images/pencil.svg";
+import plusIcon from "../images/plus.svg";
+// Import favicon
+import favicon from "../images/favicon.ico";
 
 // Initialize form validation
 enableValidation(settings);
@@ -15,14 +26,14 @@ const initialCards = [
   },
   {
     name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg ",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
   {
     name: "Restaurant terrace",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
   },
   {
-    name: "An outdoor cafe ",
+    name: "An outdoor cafe",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
   },
   {
@@ -39,11 +50,11 @@ const initialCards = [
   },
 ];
 
+// DOM elements
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
-
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
@@ -68,6 +79,13 @@ const cardTemplate = document
   .content.querySelector(".card");
 const cardList = document.querySelector(".cards__list");
 
+// Set imported images
+document.querySelector(".header__logo").src = logoImage;
+document.querySelector(".profile__avatar").src = avatarImage;
+document.querySelector(".profile__edit-btn img").src = pencilIcon;
+document.querySelector(".profile__new-post-btn img").src = plusIcon;
+
+// Modal functions
 const closeWithEscape = (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_is-opened");
@@ -87,6 +105,7 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeWithEscape);
 }
 
+// Card functions
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -94,6 +113,7 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
+
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
   cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
@@ -103,51 +123,50 @@ function getCardElement(data) {
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
   });
+
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
     previewModalCaptionEl.textContent = data.name;
-
     openModal(previewModal);
   });
+
   return cardElement;
 }
 
+// Event listeners
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   resetValidation(editProfileForm, settings);
   openModal(editProfileModal);
 });
+
 editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
-
-const newPostForm = newPostModal.querySelector(".modal__form");
-const newPostImageInput = newPostModal.querySelector("#card-image-input");
-const newPostCaptionInput = newPostModal.querySelector(
-  "#new-post-caption-input"
-);
 
 newPostBtn.addEventListener("click", function () {
   newPostForm.reset();
   resetValidation(newPostForm, settings);
   openModal(newPostModal);
 });
+
 newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
+
 previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+// Form handlers
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
 }
-editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
@@ -166,13 +185,16 @@ function handleNewPostSubmit(evt) {
   );
 }
 
+editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
+// Initialize cards
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardList.append(cardElement);
 });
 
+// Close modal by clicking on overlay
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains("modal")) {
