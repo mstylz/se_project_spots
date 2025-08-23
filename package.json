@@ -1,31 +1,31 @@
 {
-  "name": "Spots",
-  "version": "0.1.0",
-  "description": "Spots is a responsive image-sharing webpage that allows users to create, like, and delete photo cards, and update profile information. The layout mimics real-world social platforms, offering an intuitive and accessible interface across all device types — mobile, tablet, and desktop. This project is built from scratch using semantic HTML, modular CSS, and responsive design techniques.",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve --mode development",
+    "name": "Spots",
+    "version": "0.1.0",
+    "description": "Spots is a responsive image-sharing webpage that allows users to create, like, and delete photo cards, and update profile information. The layout mimics real-world social platforms, offering an intuitive and accessible interface across all device types — mobile, tablet, and desktop. This project is built from scratch using semantic HTML, modular CSS, and responsive design techniques.",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack serve --mode development",
         "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
-  "author": "Mesut Yildiz",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "autoprefixer": "10.4.7",
-    "babel-loader": "^8.2.5",
-    "clean-webpack-plugin": "4.0.0",
-    "core-js": "^3.45.0",
-    "css-loader": "^6.7.1",
-    "cssnano": "5.1.12",
-    "gh-pages": "^6.3.0",
-    "html-webpack-plugin": "^5.6.3",
-    "mini-css-extract-plugin": "^2.9.4",
-    "postcss-loader": "^7.0.1",
-    "webpack": "^5.101.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.2"
-  }
+        "deploy": "gh-pages -d dist"
+    },
+    "author": "Mesut Yildiz",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.18.9",
+        "@babel/preset-env": "^7.18.9",
+        "autoprefixer": "10.4.7",
+        "babel-loader": "^8.2.5",
+        "clean-webpack-plugin": "4.0.0",
+        "core-js": "^3.45.0",
+        "css-loader": "^6.7.1",
+        "cssnano": "5.1.12",
+        "gh-pages": "^6.3.0",
+        "html-webpack-plugin": "^5.6.3",
+        "mini-css-extract-plugin": "^2.9.4",
+        "postcss-loader": "^7.0.1",
+        "webpack": "^5.101.1",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.2.2"
+    }
 }
