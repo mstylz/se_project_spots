@@ -1,0 +1,12 @@
+.header {
+    padding: 20px 0 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    display: block;
+    width: 110px;
+    height: auto;
+    user-select: none;
+}
