@@ -6,6 +6,7 @@ import {
 import Api from "../utils/Api.js";
 import "./index.css";
 import { safeSetAvatar } from "../scripts/helper.js";
+import { handleSubmit } from "../scripts/utils.js";
 
 // Import local images so webpack emits them (no html-loader needed)
 import avatarImage from "../images/avatar.jpg";
@@ -40,7 +41,7 @@ const deleteModal = document.querySelector("#delete-modal");
 const avatarModal = document.querySelector("#avatar-modal");
 const previewModal = document.querySelector("#preview-modal");
 
-// Close buttons (no optional chaining to avoid VSCode formatter conflicts)
+// Close buttons
 const editProfileCloseBtn = editProfileModal ?
     editProfileModal.querySelector(".modal__close-btn") :
     null;
@@ -112,28 +113,20 @@ const cardLikeCounts = new Map();
 
 // ---------- Helpers for likes ----------
 function getLikeCount(card) {
-    // If we have a stored count for this card, use it
     if (cardLikeCounts.has(card._id)) {
         return cardLikeCounts.get(card._id);
     }
-
-    // Otherwise, check if the card has a likeCount property
     if (card.likeCount !== undefined) return card.likeCount;
     if (card.likesCount !== undefined) return card.likesCount;
     if (card.like_count !== undefined) return card.like_count;
-
-    // Default to 0 if no like count information is available
     return 0;
 }
 
 function isLikedByMe(card) {
     if (!currentUserId) return false;
-
-    // Use the isLiked property that the API provides
     if (card.isLiked !== undefined) return card.isLiked;
     if (card.liked !== undefined) return card.liked;
     if (card.is_liked !== undefined) return card.is_liked;
-
     return false;
 }
 
@@ -160,7 +153,6 @@ function handleEscClose(evt) {
 }
 
 function handleOverlayClose(evt) {
-    // close when clicking the overlay (outside container)
     if (evt.target.classList.contains("modal_is-opened")) {
         closeModal(evt.currentTarget);
     }
@@ -200,17 +192,14 @@ function createCardEl(card) {
                     Math.max(0, currentCount - 1) :
                     currentCount + 1;
 
-                // Update our stored count
                 cardLikeCounts.set(card._id, newCount);
 
-                // Update the UI
                 likeBtn.classList.toggle("card__like-btn_active");
                 likeCountEl.textContent = String(newCount);
 
-                // Update the card object for future reference
                 card.isLiked = !iLikeItNow;
             })
-            .catch((err) => console.error(err));
+            .catch(console.error);
     });
 
     // Delete (only for owner)
@@ -262,22 +251,14 @@ api
         currentUserId = user._id;
         if (profileNameEl) profileNameEl.textContent = user.name;
         if (profileDescEl) profileDescEl.textContent = user.about;
-
-        // SAFER: only set avatar if the URL really loads
         if (avatarImgEl) safeSetAvatar(avatarImgEl, user.avatar);
-
-        // Initialize like counts - we'll need to get the actual counts from somewhere
-        // For now, we'll set initial counts based on isLiked status
         cards.forEach((card) => {
-            // If the card is liked by current user, start with count 1, otherwise 0
-            // This is a temporary solution until we get actual like counts
             const initialCount = card.isLiked ? 1 : 0;
             cardLikeCounts.set(card._id, initialCount);
         });
-
         renderCards(cards);
     })
-    .catch((err) => console.error(err));
+    .catch(console.error);
 
 // ---------- Edit Profile ----------
 if (editProfileBtn && editProfileForm && nameInput && aboutInput) {
@@ -288,25 +269,16 @@ if (editProfileBtn && editProfileForm && nameInput && aboutInput) {
         openModal(editProfileModal);
     });
 
-    editProfileForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const submitBtn = editProfileForm.querySelector(".modal__submit-btn");
-        const original = submitBtn.textContent;
-        submitBtn.textContent = "Saving...";
-        submitBtn.disabled = true;
-
-        api
-            .updateUser({ name: nameInput.value, about: aboutInput.value })
-            .then((user) => {
-                if (profileNameEl) profileNameEl.textContent = user.name;
-                if (profileDescEl) profileDescEl.textContent = user.about;
-                closeModal(editProfileModal);
-            })
-            .catch((err) => console.error(err))
-            .finally(() => {
-                submitBtn.textContent = original;
-                submitBtn.disabled = false;
-            });
+    editProfileForm.addEventListener("submit", (evt) => {
+        function makeRequest() {
+            return api.updateUser({ name: nameInput.value, about: aboutInput.value })
+                .then((user) => {
+                    if (profileNameEl) profileNameEl.textContent = user.name;
+                    if (profileDescEl) profileDescEl.textContent = user.about;
+                    closeModal(editProfileModal);
+                });
+        }
+        handleSubmit(makeRequest, evt, "Saving...");
     });
 }
 
@@ -318,57 +290,36 @@ if (newPostBtn && newPostForm && titleInput && linkInput) {
         openModal(newPostModal);
     });
 
-    newPostForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const submitBtn = newPostForm.querySelector(".modal__submit-btn");
-        const original = submitBtn.textContent;
-        submitBtn.textContent = "Saving...";
-        submitBtn.disabled = true;
-
-        api
-            .addCard({ name: titleInput.value, link: linkInput.value })
-            .then((card) => {
-                // Initialize like count for new card
-                cardLikeCounts.set(card._id, 0);
-                prependCard(card);
-                newPostForm.reset();
-                resetValidation(newPostForm, settings);
-                closeModal(newPostModal);
-            })
-            .catch((err) => console.error(err))
-            .finally(() => {
-                submitBtn.textContent = original;
-                submitBtn.disabled = false;
-            });
+    newPostForm.addEventListener("submit", (evt) => {
+        function makeRequest() {
+            return api.addCard({ name: titleInput.value, link: linkInput.value })
+                .then((card) => {
+                    cardLikeCounts.set(card._id, 0);
+                    prependCard(card);
+                    newPostForm.reset();
+                    resetValidation(newPostForm, settings);
+                    closeModal(newPostModal);
+                });
+        }
+        handleSubmit(makeRequest, evt, "Saving...");
     });
 }
 
 // ---------- Delete Card ----------
 if (deleteForm) {
-    deleteForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!selectedCardId || !selectedCardEl) return;
-
-        const submitBtn = deleteForm.querySelector(".modal__submit-btn");
-        const original = submitBtn.textContent;
-        submitBtn.textContent = "Deleting...";
-        submitBtn.disabled = true;
-
-        api
-            .deleteCard(selectedCardId)
-            .then(() => {
-                // Remove the card from our like counts tracking
-                cardLikeCounts.delete(selectedCardId);
-                selectedCardEl.remove();
-                selectedCardEl = null;
-                selectedCardId = null;
-                closeModal(deleteModal);
-            })
-            .catch((err) => console.error(err))
-            .finally(() => {
-                submitBtn.textContent = original;
-                submitBtn.disabled = false;
-            });
+    deleteForm.addEventListener("submit", (evt) => {
+        function makeRequest() {
+            if (!selectedCardId || !selectedCardEl) return Promise.resolve();
+            return api.deleteCard(selectedCardId)
+                .then(() => {
+                    cardLikeCounts.delete(selectedCardId);
+                    selectedCardEl.remove();
+                    selectedCardEl = null;
+                    selectedCardId = null;
+                    closeModal(deleteModal);
+                });
+        }
+        handleSubmit(makeRequest, evt, "Deleting...");
     });
 }
 
@@ -380,24 +331,15 @@ if (avatarBtn && avatarForm && avatarInput) {
         openModal(avatarModal);
     });
 
-    avatarForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const submitBtn = avatarForm.querySelector(".modal__submit-btn");
-        const original = submitBtn.textContent;
-        submitBtn.textContent = "Saving...";
-        submitBtn.disabled = true;
-
-        api
-            .updateAvatar(avatarInput.value)
-            .then((user) => {
-                if (avatarImgEl) safeSetAvatar(avatarImgEl, user.avatar);
-                closeModal(avatarModal);
-            })
-            .catch((err) => console.error(err))
-            .finally(() => {
-                submitBtn.textContent = original;
-                submitBtn.disabled = false;
-            });
+    avatarForm.addEventListener("submit", (evt) => {
+        function makeRequest() {
+            return api.updateAvatar(avatarInput.value)
+                .then((user) => {
+                    if (avatarImgEl) safeSetAvatar(avatarImgEl, user.avatar);
+                    closeModal(avatarModal);
+                });
+        }
+        handleSubmit(makeRequest, evt, "Saving...");
     });
 }
 
