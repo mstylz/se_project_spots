@@ -1,18 +1,10 @@
 .page {
-    background-color: #f4ecd8;
-    /* Figma beige */
-    color: #212121;
-    min-height: 100vh;
+  background-color: #fcf5e5;
+  min-height: 100vh;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
-.page__container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 16px;
-    box-sizing: border-box;
-    font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-}
-
-.content {
-    padding-bottom: 40px;
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
 }
