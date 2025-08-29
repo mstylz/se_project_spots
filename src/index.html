@@ -5,23 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Spots</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 
 <body class="page">
     <div class="page__container">
         <header class="header">
-            <!-- src is set by JS (logo import) -->
             <img class="header__logo" src="" alt="Spots" />
         </header>
 
         <main class="content">
             <section class="profile">
                 <div class="profile__avatar-container">
-                    <!-- src starts as local avatar (JS), then replaced by API after load -->
                     <img class="profile__avatar" src="" alt="User avatar" />
-                    <!-- No <img> inside; the pencil icon is set via CSS background -->
-                    <button class="profile__avatar-edit-btn" type="button" aria-label="Edit avatar"></button>
-                </div>
+                    <button class="profile__avatar-edit-btn" type="button" aria-label="Edit avatar">
+    <span class="profile__avatar-edit-text">Edit avatar</span>
+</button> </div>
 
                 <div class="profile__column">
                     <h1 class="profile__name">Loading…</h1>
@@ -38,11 +38,10 @@
         </main>
 
         <footer class="footer">
-            <p class="footer__copy">© Spots</p>
+            <p class="footer__text">2025 © Spots</p>
         </footer>
     </div>
 
-    <!-- Card Template -->
     <template id="card-template">
     <li class="card">
       <img class="card__image" src="" alt="" />
@@ -57,76 +56,42 @@
     </li>
   </template>
 
-    <!-- Edit Profile Modal -->
     <div class="modal" id="edit-profile-modal" aria-hidden="true">
         <div class="modal__container">
             <button class="modal__close-btn" type="button" aria-label="Close"></button>
             <h2 class="modal__title">Edit profile</h2>
             <form class="modal__form" novalidate>
                 <label class="modal__label">
-          <input
-            class="modal__input"
-            id="profile-name-input"
-            type="text"
-            name="name"
-            placeholder="Name"
-            minlength="2"
-            maxlength="40"
-            required
-          />
+          <input class="modal__input" id="profile-name-input" type="text" name="name" placeholder="Name" minlength="2" maxlength="40" required />
           <span class="modal__error" id="profile-name-input-error"></span>
         </label>
-
                 <label class="modal__label">
-          <input
-            class="modal__input"
-            id="profile-description-input"
-            type="text"
-            name="about"
-            placeholder="About"
-            minlength="2"
-            maxlength="200"
-            required
-          />
+          <input class="modal__input" id="profile-description-input" type="text" name="about" placeholder="About" minlength="2" maxlength="200" required />
           <span class="modal__error" id="profile-description-input-error"></span>
         </label>
-
                 <button class="modal__submit-btn" type="submit">Save</button>
             </form>
         </div>
     </div>
 
-    <!-- New Post Modal -->
     <div class="modal" id="new-post-modal" aria-hidden="true">
         <div class="modal__container">
             <button class="modal__close-btn" type="button" aria-label="Close"></button>
             <h2 class="modal__title">New place</h2>
             <form class="modal__form" novalidate>
                 <label class="modal__label">
-          <input
-            class="modal__input"
-            id="new-post-caption-input"
-            type="text"
-            name="name"
-            placeholder="Title"
-            minlength="1"
-            maxlength="30"
-            required
-          />
+          <input class="modal__input" id="new-post-caption-input" type="text" name="name" placeholder="Title" minlength="1" maxlength="30" required />
           <span class="modal__error" id="new-post-caption-input-error"></span>
         </label>
-
                 <label class="modal__label">
           <input class="modal__input" id="card-image-input" type="url" name="link" placeholder="Image URL" required />
           <span class="modal__error" id="card-image-input-error"></span>
         </label>
-
                 <button class="modal__submit-btn" type="submit">Create</button>
             </form>
         </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div class="modal" id="delete-modal" aria-hidden="true">
         <div class="modal__container">
             <button class="modal__close-btn" type="button" aria-label="Close"></button>
@@ -137,7 +102,6 @@
         </div>
     </div>
 
-    <!-- Avatar Modal -->
     <div class="modal" id="avatar-modal" aria-hidden="true">
         <div class="modal__container">
             <button class="modal__close-btn" type="button" aria-label="Close"></button>
@@ -152,7 +116,6 @@
         </div>
     </div>
 
-    <!-- Preview Modal -->
     <div class="modal" id="preview-modal" aria-hidden="true">
         <div class="modal__container modal__container_type_image">
             <button class="modal__close-btn" type="button" aria-label="Close"></button>

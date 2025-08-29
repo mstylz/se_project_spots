@@ -11,6 +11,31 @@ import { handleSubmit } from "../scripts/utils.js";
 // Import local images so webpack emits them (no html-loader needed)
 import avatarImage from "../images/avatar.jpg";
 import logoImage from "../images/logo.svg";
+import pencilIcon from "../images/pencil.svg";
+import whitePencilIcon from "../images/white_pencil.svg";
+
+import plusIcon from "../images/plus.svg";
+import heartIcon from "../images/heart.svg";
+import likeActiveIcon from "../images/like_active.svg";
+import deleteIcon from "../images/delete.svg";
+import deleteDefaultIcon from "../images/delete_default.svg";
+import closeGreyIcon from "../images/close_icon_grey.svg";
+import closeIcon from "../images/close_icon.svg";
+
+
+document.documentElement.style.setProperty("--pencil-icon", `url(${pencilIcon})`);
+document.documentElement.style.setProperty(
+    "--whitepencil-icon",
+    `url(${whitePencilIcon})`
+);
+document.documentElement.style.setProperty("--plus-icon", `url(${plusIcon})`);
+document.documentElement.style.setProperty("--heart-icon", `url(${heartIcon})`);
+document.documentElement.style.setProperty("--like-active-icon", `url(${likeActiveIcon})`);
+document.documentElement.style.setProperty("--delete-icon", `url(${deleteIcon})`);
+document.documentElement.style.setProperty("--delete-default-icon", `url(${deleteDefaultIcon})`);
+document.documentElement.style.setProperty("--close-grey-icon", `url(${closeGreyIcon})`);
+document.documentElement.style.setProperty("--close-icon", `url(${closeIcon})`);
+
 
 // ---------- API ----------
 const api = new Api({

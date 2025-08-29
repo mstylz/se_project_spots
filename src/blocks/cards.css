@@ -1,26 +1,93 @@
 .cards {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  max-width: 1280px;
-  margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    max-width: 1280px;
+    max-height: 970px;
+    margin: 0 80px;
 }
 
 .cards__list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 413px);
-  justify-content: center;
-  gap: 40px 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__image {
+    width: 413px;
+    height: 445px;
+    object-fit: cover;
+}
+
+.card__delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url("../images/delete.svg") no-repeat center/contain;
+    border: none;
+    cursor: pointer;
+}
+
+.card__content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card__like {
+    display: flex;
+    align-items: center;
+}
+
+.card__like-btn {
+    width: 20px;
+    height: 20px;
+    background: url("../images/heart.svg") no-repeat center/contain;
+    border: none;
+    cursor: pointer;
+}
+
+.card__like-count {
+    margin-left: 6px;
+    font-size: 14px;
+    color: #212121b2;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 880px) {
+    .cards__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (max-width: 627px) {
-  .cards {
-    padding-bottom: 20px;
-  }
-  .cards__list {
-    grid-template-columns: repeat(auto-fit, 288px);
-    gap: 20px;
-  }
+    .cards__list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
