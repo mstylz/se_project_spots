@@ -1,0 +1,14 @@
+/* Single CSS entry that imports all vendor + block styles */
+
+@import "../vendor/normalize.css";
+@import "../vendor/fonts.css";
+
+/* Blocks */
+
+@import "../blocks/page.css";
+@import "../blocks/header.css";
+@import "../blocks/profile.css";
+@import "../blocks/cards.css";
+@import "../blocks/card.css";
+@import "../blocks/modal.css";
+@import "../blocks/footer.css";
